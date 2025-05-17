@@ -3,7 +3,7 @@ const btnminus = document.querySelectorAll(".btn-minus");
 const spanqtd = document.querySelectorAll(".span-qtd");
 const price = document.querySelectorAll(".price")
 const btnfin = document.querySelector("#btn-submit");
-const mensagemEstoque = document.getElementById("#mensagem-estoque");
+const mensagemEstoque = document.getElementById("mensagem-estoque");
 
 let qtd0 = 1;
 let qtd1 = 1;
@@ -19,12 +19,20 @@ btnfin.addEventListener("click", () => {
 });
 
 btnplus[0].addEventListener("click", () => {
+  if (qtd0 >= estoque0) {
+    document.getElementById("mensagem-estoque").textContent = "Você atingiu o estoque máximo (5 unidades).";
+    return;
+  }
   spanqtd[0].textContent = qtd0 += 1;
   price[0].textContent = price0 * qtd0
 });
 
 
 btnplus[1].addEventListener("click", () => {
+  if (qtd1 >= estoque1) {
+    document.getElementById("mensagem-estoque").textContent = "Você atingiu o estoque máximo (5 unidades).";
+    return;
+  }
   spanqtd[1].textContent = qtd1 += 1;
   price[1].textContent = price1 * qtd1
   
